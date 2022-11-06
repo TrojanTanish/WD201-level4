@@ -1,24 +1,24 @@
-/* eslint-disable no-undef */
+
 const todoList = require("../todo");
 let today = new Date().toLocaleDateString("en-CA");
 
 const { all, markAsComplete, add, overdue, dueToday, dueLater } = todoList();
 
-describe("Todo list getting Tested", () => {
+describe("Process to test the ToDo", () => {
   beforeAll(() => {
     add({
-      title: "Bring atta and complete 2 leetcode problems",
+      title: "Watch last night's IND VS PAK highlights",
       completed: false,
       dueDate: new Date().toLocaleDateString("en-CA"),
     });
   });
 
-  test("Adding a new todo in the list", () => {
+  test("Process to add a new topic to the ToDo", () => {
     // expect(all.length).toBe(0);
     let length = all.length;
 
     add({
-      title: "complete code with harry video 76",
+      title: "Practice Unit-1 for the upcoming sliptest on Monday",
       completed: false,
       dueDate: new Date().toLocaleDateString("en-CA"),
     });
@@ -26,13 +26,13 @@ describe("Todo list getting Tested", () => {
     expect(all.length).toBe(length + 1);
   });
 
-  test("Marking this todo as completed", () => {
+  test("Process to mark this topic from the ToDo as completed", () => {
     expect(all[0].completed).toBe(false);
     markAsComplete(0);
     expect(all[0].completed).toBe(true);
   });
 
-  test("retrieving all todos that are over due", () => {
+  test("Getting a list of all topics from ToDo that were overdue", () => {
     let listOfTodos = overdue();
 
     expect(
@@ -42,7 +42,7 @@ describe("Todo list getting Tested", () => {
     ).toBe(true);
   });
 
-  test("retrieving all todos that are due for today", () => {
+  test("Getting a list of topics from ToDo that are due today", () => {
     let listOfTodos = dueToday();
 
     expect(
@@ -52,7 +52,7 @@ describe("Todo list getting Tested", () => {
     ).toBe(true);
   });
 
-  test("retrieving all todos that are due for later", () => {
+  test("Getting a list of topics from ToDo that are due later(not today)", () => {
     let listOfTodos = dueLater();
 
     expect(
